@@ -11,6 +11,7 @@
 namespace style {
 namespace {
 
+bool SquareUserpicsValue = false;
 int DevicePixelRatioValue = 1;
 int ScaleValue = kScaleDefault;
 
@@ -44,6 +45,14 @@ int CheckScale(int scale) {
 	return (scale == kScaleAuto)
 		? kScaleAuto
 		: std::clamp(scale, kScaleMin, MaxScaleForRatio(DevicePixelRatio()));
+}
+
+bool SquareUserpics() {
+	return SquareUserpicsValue;
+}
+
+void SetSquareUserpics(bool value) {
+	SquareUserpicsValue = value;
 }
 
 } // namespace style

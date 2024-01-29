@@ -573,6 +573,13 @@ WindowTitle {
 	close: IconButton;
 	closeIconActive: icon;
 	closeIconActiveOver: icon;
+	top: IconButton;
+	topIconActive: icon;
+	topIconActiveOver: icon;
+	top2Icon: icon;
+	top2IconOver: icon;
+	top2IconActive: icon;
+	top2IconActiveOver: icon;
 }
 
 SideBarButton {
@@ -1500,6 +1507,44 @@ defaultWindowTitle: WindowTitle {
 		{ windowTitleButtonSize, titleButtonCloseBgActiveOver },
 		{ "title_button_close", titleButtonCloseFgActiveOver },
 	};
+
+	// always on top
+	top: IconButton(windowTitleButton) {
+		icon: icon {
+			{ windowTitleButtonSize, titleButtonBg },
+			{ "title_button_top", titleButtonFg },
+		};
+		iconOver: icon {
+			{ windowTitleButtonSize, titleButtonBgOver },
+			{ "title_button_top", titleButtonFgOver },
+		};
+	}
+	topIconActive: icon {
+		{ windowTitleButtonSize, titleButtonBgActive },
+		{ "title_button_top", titleButtonFgActive },
+	};
+	topIconActiveOver: icon {
+		{ windowTitleButtonSize, titleButtonBgActiveOver },
+		{ "title_button_top", titleButtonFgActiveOver },
+	};
+
+	top2Icon: icon {
+		{ windowTitleButtonSize, titleButtonBg },
+		{ "title_button_top2", titleButtonFg },
+	};
+	top2IconOver: icon {
+		{ windowTitleButtonSize, titleButtonBgOver },
+		{ "title_button_top2", titleButtonFgOver },
+	};
+	top2IconActive: icon {
+		{ windowTitleButtonSize, titleButtonBgActive },
+		{ "title_button_top2", titleButtonFgActive },
+	};
+	top2IconActiveOver: icon {
+		{ windowTitleButtonSize, titleButtonBgActiveOver },
+		{ "title_button_top2", titleButtonFgActiveOver },
+	};
+
 }
 
 windowShadow: icon {{ "window_shadow", windowShadowFg }};

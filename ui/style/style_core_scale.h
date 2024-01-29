@@ -31,6 +31,9 @@ void SetScale(int scale);
 [[nodiscard]] int MaxScaleForRatio(int ratio);
 [[nodiscard]] int CheckScale(int scale);
 
+[[nodiscard]] bool SquareUserpics();
+void SetSquareUserpics(bool value);
+
 template <typename T>
 [[nodiscard]] inline T ConvertScale(T value, int scale) {
 	if (value < 0.) {

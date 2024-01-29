@@ -39,6 +39,8 @@ Q_DECLARE_METATYPE(QMargins);
 namespace Ui::Platform {
 namespace {
 
+constexpr auto HTONTOP = int(97);
+
 constexpr auto kDWMWCP_ROUND = DWORD(2);
 constexpr auto kDWMWCP_DONOTROUND = DWORD(1);
 constexpr auto kDWMWA_WINDOW_CORNER_PREFERENCE = DWORD(33);
@@ -762,6 +764,7 @@ bool WindowHelper::handleNativeEvent(
 			case HitTestResult::Left:        return HTLEFT;
 			case HitTestResult::TopLeft:     return HTTOPLEFT;
 
+			case HitTestResult::OnTop:
 			case HitTestResult::Minimize:
 			case HitTestResult::MaximizeRestore:
 			case HitTestResult::Close: return systemButtonHitTest(result);
@@ -860,6 +863,7 @@ int WindowHelper::systemButtonHitTest(HitTestResult result) const {
 	case HitTestResult::Minimize: return HTMINBUTTON;
 	case HitTestResult::MaximizeRestore: return HTMAXBUTTON;
 	case HitTestResult::Close: return HTCLOSE;
+	case HitTestResult::OnTop: return HTONTOP;
 	}
 	return HTTRANSPARENT;
 }
@@ -872,6 +876,7 @@ HitTestResult WindowHelper::systemButtonHitTest(int result) const {
 	case HTMINBUTTON: return HitTestResult::Minimize;
 	case HTMAXBUTTON: return HitTestResult::MaximizeRestore;
 	case HTCLOSE: return HitTestResult::Close;
+	case HTONTOP: return HitTestResult::OnTop;
 	}
 	return HitTestResult::None;
 }

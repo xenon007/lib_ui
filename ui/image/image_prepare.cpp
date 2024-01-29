@@ -330,7 +330,13 @@ QImage EllipseMask(QSize size, double ratio) {
 	PainterHighQualityEnabler hq(p);
 	p.setBrush(Qt::white);
 	p.setPen(Qt::NoPen);
-	p.drawEllipse(QRect(QPoint(), size));
+
+	if (style::SquareUserpics()) {
+		p.drawRect(QRect(QPoint(), size));
+	} else {
+		p.drawEllipse(QRect(QPoint(), size));
+	}
+
 	p.end();
 
 	result.setDevicePixelRatio(ratio);

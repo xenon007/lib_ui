@@ -49,6 +49,7 @@ namespace internal {
 TitleControls::Layout TitleControlsLayout() {
 	return TitleControls::Layout{
 		.right = {
+			TitleControls::Control::OnTop,
 			TitleControls::Control::Minimize,
 			TitleControls::Control::Maximize,
 			TitleControls::Control::Close,
@@ -73,7 +74,9 @@ TitleWidget::TitleWidget(not_null<RpWidget*> parent)
 	: nullptr)
 , _controls(
 	_paddingHelper ? &_paddingHelper->controlsParent : this,
-	st::defaultWindowTitle)
+	st::defaultWindowTitle,
+	nullptr,
+	true)
 , _shadow(this, st::titleShadow) {
 	setAttribute(Qt::WA_OpaquePaintEvent);
 
